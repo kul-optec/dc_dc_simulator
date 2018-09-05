@@ -2,7 +2,7 @@
 Simulator offers GUI for the transient simulation of PWM DC-DC converters. Simulation can be done in open loop,
 with PID controller applied or with control using nonlinear model predictive control (NMPC) concepts. 
 
-Usage of the simulator and its design are described in the [User manual](https://kul-forbes.github.io/dc_dc_simulator/Tutorial.pdf).
+Usage of the simulator and its design are described in the [User manual](https://github.com/kul-forbes/dc_dc_simulator/blob/master/Tutorial.pdf).
 
 ## Install instructions
 Program is written in Python 3.6 programming language using CASADI [1](https://github.com/casadi/casadi/wiki) package. For MPC simulator uses [NMPC-codegen](https://kul-forbes.github.io/nmpc-codegen/), which is integrated inside this simulator. 
