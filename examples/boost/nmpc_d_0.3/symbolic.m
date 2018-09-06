@@ -19,7 +19,7 @@ dx = dd*Ts*0.5*(A0 * xx + b0)
 xe = xx + dx;
 
 int0 = int(expm(A0*t), t, 0, d*Ts);
-int1 = int(expm(A1*t), t, 0, d*Ts);
+int1 = int(expm(A1*t), t, 0, (1-d)*Ts);
 
 x = [x1;x2];
 
