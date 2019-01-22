@@ -1,0 +1,224 @@
+Horizon N = 10:
+
+Step [1/50]: Cost is = 461.7313298357867. The optimal input is: [[0.0155053]] time = 0:0:0  0:392:0, number of panoc iterations = 23
+Step [2/50]: Cost is = 259.7816445852467. The optimal input is: [[0.]] time = 0:0:0  0:152:0, number of panoc iterations = 19
+Step [3/50]: Cost is = 122.96029088751209. The optimal input is: [[-6.03094196e-08]] time = 0:0:0  0:153:0, number of panoc iterations = 20
+Step [4/50]: Cost is = 47.90230563648763. The optimal input is: [[-1.94002058e-06]] time = 0:0:0  0:157:0, number of panoc iterations = 19
+Step [5/50]: Cost is = 15.534472827997623. The optimal input is: [[0.01458668]] time = 0:0:0  0:147:0, number of panoc iterations = 15
+Step [6/50]: Cost is = 4.970543449252556. The optimal input is: [[0.13985028]] time = 0:0:0  0:105:0, number of panoc iterations = 14
+Step [7/50]: Cost is = 1.6328982589307977. The optimal input is: [[0.21431434]] time = 0:0:0  0:98:0, number of panoc iterations = 13
+Step [8/50]: Cost is = 0.5579063989247643. The optimal input is: [[0.25498826]] time = 0:0:0  0:105:0, number of panoc iterations = 14
+Step [9/50]: Cost is = 0.19714581909454643. The optimal input is: [[0.27602767]] time = 0:0:0  0:83:0, number of panoc iterations = 11
+Step [10/50]: Cost is = 0.07183554923236835. The optimal input is: [[0.28715848]] time = 0:0:0  0:83:0, number of panoc iterations = 11
+Step [11/50]: Cost is = 0.027260750756755096. The optimal input is: [[0.29337347]] time = 0:0:0  0:83:0, number of panoc iterations = 11
+Step [12/50]: Cost is = 0.011046975773744373. The optimal input is: [[0.29694458]] time = 0:0:0  0:83:0, number of panoc iterations = 11
+Step [13/50]: Cost is = 0.004988305825434404. The optimal input is: [[0.29903177]] time = 0:0:0  0:83:0, number of panoc iterations = 11
+Step [14/50]: Cost is = 0.0026397080632420003. The optimal input is: [[0.30025966]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [15/50]: Cost is = 0.0016836498717763366. The optimal input is: [[0.30098513]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [16/50]: Cost is = 0.0012701625497696873. The optimal input is: [[0.30141447]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [17/50]: Cost is = 0.0010789332328453413. The optimal input is: [[0.30166896]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [18/50]: Cost is = 0.000984511116262352. The optimal input is: [[0.30181992]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [19/50]: Cost is = 0.0009351845759420516. The optimal input is: [[0.30190951]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [20/50]: Cost is = 0.0009082702008631757. The optimal input is: [[0.3019627]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [21/50]: Cost is = 0.0008931255423365906. The optimal input is: [[0.30199428]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [22/50]: Cost is = 0.0008844274758767792. The optimal input is: [[0.30201303]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [23/50]: Cost is = 0.0008793663240416754. The optimal input is: [[0.30202416]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [24/50]: Cost is = 0.0008763974778485796. The optimal input is: [[0.30203078]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [25/50]: Cost is = 0.0008746473622261601. The optimal input is: [[0.3020347]] time = 0:0:0  0:75:0, number of panoc iterations = 10
+Step [26/50]: Cost is = 0.0008736126080043716. The optimal input is: [[0.30203703]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [27/50]: Cost is = 0.0008729997189845505. The optimal input is: [[0.30203842]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [28/50]: Cost is = 0.0008726363157311072. The optimal input is: [[0.30203924]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [29/50]: Cost is = 0.0008724207045575402. The optimal input is: [[0.30203973]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [30/50]: Cost is = 0.0008722927317686202. The optimal input is: [[0.30204002]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [31/50]: Cost is = 0.0008722167583843746. The optimal input is: [[0.30204019]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [32/50]: Cost is = 0.0008721716493807557. The optimal input is: [[0.30204029]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [33/50]: Cost is = 0.0008721448639032579. The optimal input is: [[0.30204036]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [34/50]: Cost is = 0.0008721289580858102. The optimal input is: [[0.30204039]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [35/50]: Cost is = 0.0008721195125896511. The optimal input is: [[0.30204041]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [36/50]: Cost is = 0.0008721139033920278. The optimal input is: [[0.30204043]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [37/50]: Cost is = 0.0008721105723439119. The optimal input is: [[0.30204043]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [38/50]: Cost is = 0.0008721085941725827. The optimal input is: [[0.30204044]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [39/50]: Cost is = 0.0008721074194151044. The optimal input is: [[0.30204044]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [40/50]: Cost is = 0.000872106721772272. The optimal input is: [[0.30204044]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [41/50]: Cost is = 0.0008721063074679323. The optimal input is: [[0.30204044]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [42/50]: Cost is = 0.0008721060614280046. The optimal input is: [[0.30204044]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [43/50]: Cost is = 0.0008721059153140441. The optimal input is: [[0.30204044]] time = 0:0:0  0:75:0, number of panoc iterations = 10
+Step [44/50]: Cost is = 0.0008721058285428454. The optimal input is: [[0.30204044]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [45/50]: Cost is = 0.0008721057770130383. The optimal input is: [[0.30204044]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [46/50]: Cost is = 0.0008721057464107714. The optimal input is: [[0.30204044]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [47/50]: Cost is = 0.0008721057282381138. The optimal input is: [[0.30204044]] time = 0:0:0  0:76:0, number of panoc iterations = 10
+Step [48/50]: Cost is = 0.0008721057174456861. The optimal input is: [[0.30204044]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [49/50]: Cost is = 0.000872105711036443. The optimal input is: [[0.30204044]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Step [50/50]: Cost is = 0.0008721057072289599. The optimal input is: [[0.30204044]] time = 0:0:0  0:77:0, number of panoc iterations = 10
+Final state:
+[[ 4.81110245]
+ [14.81535058]]
+
+
+Horizon N = 3:
+
+Step [1/50]: Cost is = 556.7813504561365. The optimal input is: [[0.01254139]] time = 0:0:0  0:32:0, number of panoc iterations = 4
+Step [2/50]: Cost is = 310.3375047088186. The optimal input is: [[0.]] time = 0:0:0  0:4:0, number of panoc iterations = 1
+Step [3/50]: Cost is = 141.9728463556985. The optimal input is: [[0.]] time = 0:0:0  0:4:0, number of panoc iterations = 1
+Step [4/50]: Cost is = 52.82308939539243. The optimal input is: [[0.]] time = 0:0:0  0:9:0, number of panoc iterations = 1
+Step [5/50]: Cost is = 16.821171305903427. The optimal input is: [[0.04715441]] time = 0:0:0  0:11:0, number of panoc iterations = 8
+Step [6/50]: Cost is = 4.846463196725097. The optimal input is: [[0.13540334]] time = 0:0:0  0:12:0, number of panoc iterations = 9
+Step [7/50]: Cost is = 1.3410519577836126. The optimal input is: [[0.20577819]] time = 0:0:0  0:11:0, number of panoc iterations = 8
+Step [8/50]: Cost is = 0.37899357552410945. The optimal input is: [[0.25191283]] time = 0:0:0  0:13:0, number of panoc iterations = 8
+Step [9/50]: Cost is = 0.11206393453504511. The optimal input is: [[0.27649863]] time = 0:0:0  0:10:0, number of panoc iterations = 7
+Step [10/50]: Cost is = 0.03494235140484884. The optimal input is: [[0.28868267]] time = 0:0:0  0:10:0, number of panoc iterations = 7
+Step [11/50]: Cost is = 0.011711495270528047. The optimal input is: [[0.29486217]] time = 0:0:0  0:10:0, number of panoc iterations = 7
+Step [12/50]: Cost is = 0.004374650268218673. The optimal input is: [[0.29809651]] time = 0:0:0  0:10:0, number of panoc iterations = 7
+Step [13/50]: Cost is = 0.0019060375954696373. The optimal input is: [[0.2998157]] time = 0:0:0  0:12:0, number of panoc iterations = 6
+Step [14/50]: Cost is = 0.0010039949846371978. The optimal input is: [[0.30073931]] time = 0:0:0  0:9:0, number of panoc iterations = 5
+Step [15/50]: Cost is = 0.000641086689207537. The optimal input is: [[0.30122522]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [16/50]: Cost is = 0.00048217466046625697. The optimal input is: [[0.30149215]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [17/50]: Cost is = 0.0004074118551454269. The optimal input is: [[0.3016386]] time = 0:0:0  0:9:0, number of panoc iterations = 5
+Step [18/50]: Cost is = 0.00037009819270169246. The optimal input is: [[0.30171534]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [19/50]: Cost is = 0.0003507862751515663. The optimal input is: [[0.30175618]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [20/50]: Cost is = 0.0003405797296275357. The optimal input is: [[0.30177813]] time = 0:0:0  0:10:0, number of panoc iterations = 5
+Step [21/50]: Cost is = 0.00033512196132739434. The optimal input is: [[0.30178999]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [22/50]: Cost is = 0.0003321845822420199. The optimal input is: [[0.30179641]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [23/50]: Cost is = 0.00033059806495354003. The optimal input is: [[0.30179989]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [24/50]: Cost is = 0.0003297395063109145. The optimal input is: [[0.30180177]] time = 0:0:0  0:11:0, number of panoc iterations = 5
+Step [25/50]: Cost is = 0.0003292743997539545. The optimal input is: [[0.3018028]] time = 0:0:0  0:13:0, number of panoc iterations = 5
+Step [26/50]: Cost is = 0.0003290222935788821. The optimal input is: [[0.30180335]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [27/50]: Cost is = 0.0003288855995827146. The optimal input is: [[0.30180365]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [28/50]: Cost is = 0.00032881147049961196. The optimal input is: [[0.30180382]] time = 0:0:0  0:9:0, number of panoc iterations = 5
+Step [29/50]: Cost is = 0.00032877126665805897. The optimal input is: [[0.3018039]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [30/50]: Cost is = 0.0003287494610588709. The optimal input is: [[0.30180395]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [31/50]: Cost is = 0.0003287376339063281. The optimal input is: [[0.30180398]] time = 0:0:0  0:10:0, number of panoc iterations = 5
+Step [32/50]: Cost is = 0.00032873121887624517. The optimal input is: [[0.30180399]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [33/50]: Cost is = 0.00032872773934545846. The optimal input is: [[0.301804]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [34/50]: Cost is = 0.00032872585203032486. The optimal input is: [[0.301804]] time = 0:0:0  0:9:0, number of panoc iterations = 5
+Step [35/50]: Cost is = 0.0003287248283382706. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [36/50]: Cost is = 0.00032872427308026345. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [37/50]: Cost is = 0.00032872397190429934. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [38/50]: Cost is = 0.00032872380854409155. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [39/50]: Cost is = 0.0003287237199364399. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [40/50]: Cost is = 0.0003287236718750859. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [41/50]: Cost is = 0.00032872364580591954. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [42/50]: Cost is = 0.0003287236316657332. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [43/50]: Cost is = 0.0003287236239963773. The optimal input is: [[0.30180401]] time = 0:0:0  0:11:0, number of panoc iterations = 5
+Step [44/50]: Cost is = 0.00032872361983604637. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [45/50]: Cost is = 0.00032872361757963446. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [46/50]: Cost is = 0.0003287236163559983. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [47/50]: Cost is = 0.0003287236156920469. The optimal input is: [[0.30180401]] time = 0:0:0  0:9:0, number of panoc iterations = 5
+Step [48/50]: Cost is = 0.0003287236153318875. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [49/50]: Cost is = 0.00032872361513666844. The optimal input is: [[0.30180401]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [50/50]: Cost is = 0.0003287236150306286. The optimal input is: [[0.30180401]] time = 0:0:0  0:9:0, number of panoc iterations = 5
+Final state:
+[[ 4.80788496]
+ [14.80992338]]
+ 
+Horizon N = 2:
+ 
+Step [1/50]: Cost is = 585.8341165738889. The optimal input is: [[0.00779236]] time = 0:0:0  0:30:0, number of panoc iterations = 5
+Step [2/50]: Cost is = 354.82851673671905. The optimal input is: [[0.]] time = 0:0:0  0:3:0, number of panoc iterations = 1
+Step [3/50]: Cost is = 173.50944963327362. The optimal input is: [[0.]] time = 0:0:0  0:3:0, number of panoc iterations = 1
+Step [4/50]: Cost is = 66.91237004707823. The optimal input is: [[0.]] time = 0:0:0  0:6:0, number of panoc iterations = 1
+Step [5/50]: Cost is = 20.45538790526563. The optimal input is: [[0.]] time = 0:0:0  0:4:0, number of panoc iterations = 1
+Step [6/50]: Cost is = 6.576262398685126. The optimal input is: [[0.11203516]] time = 0:0:0  0:8:0, number of panoc iterations = 6
+Step [7/50]: Cost is = 2.619682689106236. The optimal input is: [[0.21634818]] time = 0:0:0  0:7:0, number of panoc iterations = 6
+Step [8/50]: Cost is = 1.2017336766476636. The optimal input is: [[0.26014598]] time = 0:0:0  0:7:0, number of panoc iterations = 6
+Step [9/50]: Cost is = 0.5884636125468601. The optimal input is: [[0.2777792]] time = 0:0:0  0:8:0, number of panoc iterations = 7
+Step [10/50]: Cost is = 0.2966393109718357. The optimal input is: [[0.28607258]] time = 0:0:0  0:7:0, number of panoc iterations = 6
+Step [11/50]: Cost is = 0.15250937400484535. The optimal input is: [[0.2909281]] time = 0:0:0  0:7:0, number of panoc iterations = 5
+Step [12/50]: Cost is = 0.08007826127198944. The optimal input is: [[0.2941346]] time = 0:0:0  0:7:0, number of panoc iterations = 5
+Step [13/50]: Cost is = 0.04316249729272913. The optimal input is: [[0.2963356]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [14/50]: Cost is = 0.024048056253622968. The optimal input is: [[0.29786285]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [15/50]: Cost is = 0.013960564585605306. The optimal input is: [[0.2989271]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [16/50]: Cost is = 0.00851395878048186. The optimal input is: [[0.29967051]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [17/50]: Cost is = 0.005493925876246141. The optimal input is: [[0.30019066]] time = 0:0:0  0:7:0, number of panoc iterations = 5
+Step [18/50]: Cost is = 0.0037691237966448205. The optimal input is: [[0.30055499]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [19/50]: Cost is = 0.0027528696359337594. The optimal input is: [[0.30081039]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [20/50]: Cost is = 0.002135257835529962. The optimal input is: [[0.30098951]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [21/50]: Cost is = 0.0017488719491859208. The optimal input is: [[0.30111519]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [22/50]: Cost is = 0.0015008617120608005. The optimal input is: [[0.3012034]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [23/50]: Cost is = 0.0013381970291298185. The optimal input is: [[0.30126531]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [24/50]: Cost is = 0.0012296357409300517. The optimal input is: [[0.30130878]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [25/50]: Cost is = 0.0011561942126496224. The optimal input is: [[0.3013393]] time = 0:0:0  0:7:0, number of panoc iterations = 5
+Step [26/50]: Cost is = 0.001105998385534366. The optimal input is: [[0.30136073]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [27/50]: Cost is = 0.001071428100310105. The optimal input is: [[0.30137577]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [28/50]: Cost is = 0.0010474863029992696. The optimal input is: [[0.30138634]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [29/50]: Cost is = 0.0010308384616260053. The optimal input is: [[0.30139376]] time = 0:0:0  0:7:0, number of panoc iterations = 5
+Step [30/50]: Cost is = 0.001019229020322393. The optimal input is: [[0.30139897]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [31/50]: Cost is = 0.0010111164814555458. The optimal input is: [[0.30140263]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [32/50]: Cost is = 0.0010054392694506039. The optimal input is: [[0.3014052]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [33/50]: Cost is = 0.0010014622194848316. The optimal input is: [[0.301407]] time = 0:0:0  0:9:0, number of panoc iterations = 5
+Step [34/50]: Cost is = 0.000998674154400482. The optimal input is: [[0.30140827]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [35/50]: Cost is = 0.0009967186111939194. The optimal input is: [[0.30140916]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [36/50]: Cost is = 0.0009953465020145942. The optimal input is: [[0.30140978]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [37/50]: Cost is = 0.0009943835155301946. The optimal input is: [[0.30141022]] time = 0:0:0  0:12:0, number of panoc iterations = 5
+Step [38/50]: Cost is = 0.0009937075426937356. The optimal input is: [[0.30141053]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [39/50]: Cost is = 0.0009932329808769898. The optimal input is: [[0.30141074]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [40/50]: Cost is = 0.0009928997888271319. The optimal input is: [[0.3014109]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [41/50]: Cost is = 0.000992665838654488. The optimal input is: [[0.301411]] time = 0:0:0  0:8:0, number of panoc iterations = 5
+Step [42/50]: Cost is = 0.0009925015638312458. The optimal input is: [[0.30141108]] time = 0:0:0  0:9:0, number of panoc iterations = 5
+Step [43/50]: Cost is = 0.0009923862100278424. The optimal input is: [[0.30141113]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [44/50]: Cost is = 0.0009923052068322277. The optimal input is: [[0.30141117]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [45/50]: Cost is = 0.000992248324297653. The optimal input is: [[0.30141119]] time = 0:0:0  0:7:0, number of panoc iterations = 5
+Step [46/50]: Cost is = 0.0009922083794922602. The optimal input is: [[0.30141121]] time = 0:0:0  0:7:0, number of panoc iterations = 5
+Step [47/50]: Cost is = 0.0009921803287132893. The optimal input is: [[0.30141122]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [48/50]: Cost is = 0.0009921606302748655. The optimal input is: [[0.30141123]] time = 0:0:0  0:7:0, number of panoc iterations = 5
+Step [49/50]: Cost is = 0.0009921467971507807. The optimal input is: [[0.30141124]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Step [50/50]: Cost is = 0.0009921370828875975. The optimal input is: [[0.30141124]] time = 0:0:0  0:6:0, number of panoc iterations = 5
+Final state:
+[[ 4.80254796]
+ [14.80091593]]
+ 
+Horizon N = 1:
+
+Step [1/50]: Cost is = 201.87482589167126. The optimal input is: [[0.00708825]] time = 0:0:0  0:10:0, number of panoc iterations = 3
+Step [2/50]: Cost is = 136.78905594877324. The optimal input is: [[0.]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Step [3/50]: Cost is = 75.0498946731775. The optimal input is: [[0.]] time = 0:0:0  0:3:0, number of panoc iterations = 1
+Step [4/50]: Cost is = 32.36907942873733. The optimal input is: [[0.]] time = 0:0:0  0:3:0, number of panoc iterations = 1
+Step [5/50]: Cost is = 10.363653205087035. The optimal input is: [[0.]] time = 0:0:0  0:3:0, number of panoc iterations = 1
+Step [6/50]: Cost is = 2.566569426036424. The optimal input is: [[0.]] time = 0:0:0  0:3:0, number of panoc iterations = 1
+Step [7/50]: Cost is = 1.4251093863036668. The optimal input is: [[0.15300733]] time = 0:0:0  0:5:0, number of panoc iterations = 5
+Step [8/50]: Cost is = 1.3946358164920283. The optimal input is: [[0.23836531]] time = 0:0:0  0:5:0, number of panoc iterations = 5
+Step [9/50]: Cost is = 1.4609452339507105. The optimal input is: [[0.24841768]] time = 0:0:0  0:4:0, number of panoc iterations = 4
+Step [10/50]: Cost is = 1.539314139309122. The optimal input is: [[0.24855232]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Step [11/50]: Cost is = 1.6192635384822514. The optimal input is: [[0.24744603]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [12/50]: Cost is = 1.6991325641981463. The optimal input is: [[0.24620901]] time = 0:0:0  0:5:0, number of panoc iterations = 3
+Step [13/50]: Cost is = 1.7784384778954365. The optimal input is: [[0.2449872]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [14/50]: Cost is = 1.8568738216195264. The optimal input is: [[0.24380133]] time = 0:0:0  0:5:0, number of panoc iterations = 3
+Step [15/50]: Cost is = 1.934172032463611. The optimal input is: [[0.24265527]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [16/50]: Cost is = 2.010090668436315. The optimal input is: [[0.24155036]] time = 0:0:0  0:3:0, number of panoc iterations = 3
+Step [17/50]: Cost is = 2.084410535684716. The optimal input is: [[0.24048735]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [18/50]: Cost is = 2.156936584328252. The optimal input is: [[0.23946669]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [19/50]: Cost is = 2.2274985885579106. The optimal input is: [[0.23848859]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [20/50]: Cost is = 2.295951353470936. The optimal input is: [[0.23755301]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [21/50]: Cost is = 2.3621744866464125. The optimal input is: [[0.2366597]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [22/50]: Cost is = 2.426071708914923. The optimal input is: [[0.23580822]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [23/50]: Cost is = 2.4875698859120527. The optimal input is: [[0.23499796]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [24/50]: Cost is = 2.5466177197289657. The optimal input is: [[0.23422814]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [25/50]: Cost is = 2.603184264799687. The optimal input is: [[0.23349784]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [26/50]: Cost is = 2.6572572706871385. The optimal input is: [[0.23280606]] time = 0:0:0  0:5:0, number of panoc iterations = 3
+Step [27/50]: Cost is = 2.7088414378768872. The optimal input is: [[0.23215165]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [28/50]: Cost is = 2.757956621310607. The optimal input is: [[0.23153341]] time = 0:0:0  0:5:0, number of panoc iterations = 3
+Step [29/50]: Cost is = 2.80463601693923. The optimal input is: [[0.23095006]] time = 0:0:0  0:5:0, number of panoc iterations = 3
+Step [30/50]: Cost is = 2.8489243994386846. The optimal input is: [[0.2304003]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [31/50]: Cost is = 2.890876420056751. The optimal input is: [[0.22988277]] time = 0:0:0  0:3:0, number of panoc iterations = 3
+Step [32/50]: Cost is = 2.9305549795186643. The optimal input is: [[0.2293961]] time = 0:0:0  0:4:0, number of panoc iterations = 3
+Step [33/50]: Cost is = 2.968029709221394. The optimal input is: [[0.2289389]] time = 0:0:0  0:4:0, number of panoc iterations = 2
+Step [34/50]: Cost is = 3.0033755309727765. The optimal input is: [[0.22850979]] time = 0:0:0  0:5:0, number of panoc iterations = 2
+Step [35/50]: Cost is = 3.036671506799068. The optimal input is: [[0.22810742]] time = 0:0:0  0:5:0, number of panoc iterations = 2
+Step [36/50]: Cost is = 3.0679995567080067. The optimal input is: [[0.22773042]] time = 0:0:0  0:4:0, number of panoc iterations = 2
+Step [37/50]: Cost is = 3.0974434587528545. The optimal input is: [[0.22737748]] time = 0:0:0  0:4:0, number of panoc iterations = 2
+Step [38/50]: Cost is = 3.1250879459090757. The optimal input is: [[0.22704731]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Step [39/50]: Cost is = 3.1510179152024875. The optimal input is: [[0.22673866]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Step [40/50]: Cost is = 3.17531774639646. The optimal input is: [[0.2264503]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Step [41/50]: Cost is = 3.1980707234138426. The optimal input is: [[0.22618108]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Step [42/50]: Cost is = 3.219358550461904. The optimal input is: [[0.22592986]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Step [43/50]: Cost is = 3.2392609544131856. The optimal input is: [[0.22569557]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Step [44/50]: Cost is = 3.2578553649279325. The optimal input is: [[0.22547717]] time = 0:0:0  0:4:0, number of panoc iterations = 2
+Step [45/50]: Cost is = 3.2752166639585756. The optimal input is: [[0.22527369]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Step [46/50]: Cost is = 3.291416996591275. The optimal input is: [[0.22508418]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Step [47/50]: Cost is = 3.3065256356058392. The optimal input is: [[0.22490777]] time = 0:0:0  0:4:0, number of panoc iterations = 2
+Step [48/50]: Cost is = 3.320608892638888. The optimal input is: [[0.2247436]] time = 0:0:0  0:4:0, number of panoc iterations = 2
+Step [49/50]: Cost is = 3.3337300693834235. The optimal input is: [[0.22459088]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Step [50/50]: Cost is = 3.345949442828483. The optimal input is: [[0.22444886]] time = 0:0:0  0:3:0, number of panoc iterations = 2
+Final state:
+[[ 3.91748197]
+ [13.22038088]]

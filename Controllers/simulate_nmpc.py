@@ -63,9 +63,9 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
     
     mpc_controller = prepare_model(A, b, num_subsystems, num_states, frequency, num_inputs+1, Q, R, Q_terminal, R_terminal)
 
-    mpc_controller.horizon = 10 # NMPC parameter
+    mpc_controller.horizon = 3 # NMPC parameter
     mpc_controller.integrator_casadi = False # optional  feature that can generate the integrating used  in the cost function
-    mpc_controller.panoc_max_steps = 500 # the maximum amount of iterations the PANOC algorithm is allowed to do.
+    mpc_controller.panoc_max_steps = 250 # the maximum amount of iterations the PANOC algorithm is allowed to do.
     mpc_controller.min_residual=-3
     
     # adding the constraints on state variables
