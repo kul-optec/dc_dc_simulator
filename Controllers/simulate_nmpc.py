@@ -24,7 +24,7 @@ matrices = []
 
 time = []
 
-def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_name):
+def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_name, log_file_name):
     num_subsystems = model.get_state_number()
     
     A = []
@@ -55,7 +55,7 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
     num_states = A[0].size1()
     num_inputs = len(A) - 1
     
-    # Q and R matrixes determined by the control engineer.
+    # Q and R matrixes 
     Q = np.diag([1. for i in range(num_states)])
     R = np.diag([0.1 for dummy in range(num_inputs)])
     Q_terminal = np.array([[2.0767,0.9497], [0.9497,1.8396]])
@@ -63,10 +63,10 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
     
     mpc_controller = prepare_model(A, b, num_subsystems, num_states, frequency, num_inputs+1, Q, R, Q_terminal, R_terminal)
 
-    mpc_controller.horizon = 3 # NMPC parameter
-    mpc_controller.integrator_casadi = False # optional  feature that can generate the integrating used  in the cost function
-    mpc_controller.panoc_max_steps = 250 # the maximum amount of iterations the PANOC algorithm is allowed to do.
-    mpc_controller.min_residual=-3
+    mpc_controller.horizon = 2                  # NMPC parameter
+    mpc_controller.integrator_casadi = False    # optional  feature that can generate the integrating used  in the cost function
+    mpc_controller.panoc_max_steps = 250        # the maximum amount of iterations the PANOC algorithm is allowed to do.
+    mpc_controller.min_residual = -3
     
     # adding the constraints on state variables
     for dcm in list_dcm:
@@ -77,21 +77,26 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
       
     # simulate everything
     initial_state = np.array([0 for i in range(num_states)])
-#    initial_state = np.array([2,1])
     reference_state = model.steady_state(duty_ratio, 'CCM')
     reference_input = np.array(duty_ratio)
     delta = model.delta_steady_state(duty_ratio, 1/frequency, reference_state) 
     
     weights = [10. for dummy in range(len(list_dcm))]
 
-    state_history = simulate_mpc(mpc_controller, initial_state, number_steps, \
+    state_history, log_history = simulate_mpc(mpc_controller, initial_state, number_steps, \
                                  reference_state-delta, reference_input, weights, simulation_time)
 
     npy_file = open(file_name, 'wb')	
     np.save(npy_file, state_history)
     npy_file.close()
+    
+    log_file = open(log_file_name, 'w')
+    for i in range(0,np.shape(log_history)[1]):
+        file_string = str(log_history[0,i]) + "," + str(log_history[1,i]) + "," + str(log_history[2,i]) + "," + str(log_history[3,i]) + "\n"
+        log_file.write(file_string)
+    log_file.close()
 
-    plot_log(state_history, None, file_name)
+    plot_log(state_history, log_history, file_name, log_file_name)
     
 def prepare_model(A, b, number_subsystems, number_of_states, frequency, \
                   number_of_steps, Q, R, Q_terminal = None, R_terminal = None):
@@ -134,15 +139,17 @@ def simulate_mpc(mpc_controller, initial_state, number_steps_period, reference_s
     
     state_history[0,0] = time
     state_history[1:len(state)+1,0] = state
+    
+    log_history = np.zeros((4, number_of_steps))
 
     for i in range(0, number_of_steps):
         result_simulation = sim.simulate_nmpc(state, reference_state, reference_input)
         cost = sim.get_last_buffered_cost()
-        print("Step [" + str(i+1) + "/" + str(number_of_steps) + "]: Cost is = " + \
-                     str(cost) +\
-                     ". The optimal input is: [" + str(result_simulation.optimal_input) + "]" \
-              + " time = " + str(result_simulation.time_string) + ", number of panoc iterations = " + str(
-              result_simulation.panoc_interations))
+#        string = "[" + str(i+1) + "/" + str(number_of_steps) + "]: cost = " + str(cost) + ", optimal input = " + str(result_simulation.optimal_input)  \
+#            + ", time = " + str(result_simulation.micro_seconds) + ", iterations = " + str(result_simulation.panoc_interations)
+#        print(string)
+        
+        log_history[:,i] = [cost, result_simulation.optimal_input, result_simulation.micro_seconds, result_simulation.panoc_interations]
         
         sum_inp = 0
         for index in range(mpc_controller.model.number_of_inputs):
@@ -166,9 +173,9 @@ def simulate_mpc(mpc_controller, initial_state, number_steps_period, reference_s
     print("Final state:") 
     print(state)
 
-    return state_history
+    return state_history, log_history
 
-def plot_log(state_history, log_history, file_name):
+def plot_log(state_history, log_history, file_name, log_file_name):
     plot_data(file_name)
     
     
