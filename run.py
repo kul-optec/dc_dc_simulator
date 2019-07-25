@@ -33,6 +33,7 @@ SIMULATION_TIME = 10e-3
 TIME_STEP_POINTS = 100
 
 OUTPUT_FILE_NAME = './examples/state_variables.npy'
+log_file_name = './examples/log.txt'
 
 from diagrams import *
 
@@ -69,6 +70,7 @@ class Window(QMainWindow):
         # variables
         self.open_file = None
         self.save_file = OUTPUT_FILE_NAME
+        self.log_file_name = log_file_name
         
         # control parameters
         self.on_switches = 0
@@ -434,7 +436,7 @@ class Window(QMainWindow):
             simulate_eig.simulate(state_space_model.get_beginning_state(), model, controller, \
                                                    self.sim_time, self.time_step_points, self.save_file)
         else:
-            simulate_nmpc.simulate(state_space_model, self.sim_time, int(self.time_step_points), [self.duty_ratio], self.frequency, self.save_file)
+            simulate_nmpc.simulate(state_space_model, self.sim_time, int(self.time_step_points), [self.duty_ratio], self.frequency, self.save_file, self.log_file_name)
         self.btn_simulate.setEnabled(False)
         self.btn_plot.setEnabled(True)
         self.statusBar.showMessage("Simulation finished.")

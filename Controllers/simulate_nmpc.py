@@ -58,7 +58,7 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
     # Q and R matrixes 
     Q = np.diag([1. for i in range(num_states)])
     R = np.diag([0.1 for dummy in range(num_inputs)])
-    Q_terminal = np.array([[2.0767,0.9497], [0.9497,1.8396]])
+    Q_terminal = Q #np.array([[2.0767,0.9497], [0.9497,1.8396]])
     R_terminal = np.diag([0 for dummy in range(num_inputs)])
     
     mpc_controller = prepare_model(A, b, num_subsystems, num_states, frequency, num_inputs+1, Q, R, Q_terminal, R_terminal)
