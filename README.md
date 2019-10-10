@@ -13,14 +13,13 @@ have installed:
 - Gcc GNU compiler 
 
 Windows users might use MSYS2: https://www.msys2.org/ and install the necessary using following commands.
-
 Open msys2.exe and type: `pacman -Syu` to update MSYS2
 
 Close the window and open it again and type: 
 ```
-						 pacman -Sy pacman		(to update the package database)
-						 pacman -S mingw-w64-x86_64-toolchain		(for a toolchain)
-						 pacman -S make		(to install make)
+pacman -Sy pacman		(to update the package database)
+pacman -S mingw-w64-x86_64-toolchain		(for a toolchain)
+pacman -S make		(to install make)
 ```
 						 
 Add folders `<MSYS2 root>/mingw64/bin` and `<MSYS2 root>/usr/bin` to path.
