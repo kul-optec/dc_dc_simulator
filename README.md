@@ -19,9 +19,9 @@ Open msys2.exe and type: `pacman -Syu` to update MSYS2
 
 Close the window and open it again and type: 
 ```
-pacman -Sy pacman							(to update the package database)
+pacman -Sy pacman		(to update the package database)
 pacman -S mingw-w64-x86_64-toolchain		(for a toolchain)
-pacman -S make								(to install make)
+pacman -S make		(to install make)
 ```
 						 
 Add folders `<MSYS2 root>/mingw64/bin` and `<MSYS2 root>/usr/bin` to path.
