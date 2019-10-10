@@ -199,10 +199,11 @@ def plot_data(file_name):
     time_max = float(max(m[0]))
     
     close('all')
-    
+        
     rc('text', usetex = True)
-    rc('text.latex', preamble = r'\usepackage{amsmath}, \usepackage{amsfonts}')
-    rc('font', family='serif', weight='normal', style='normal')
+    rc('font', **{'family' : "sans-serif"})
+    params= {'text.latex.preamble' : [r'\usepackage{amsmath, amsfonts}']}
+    rcParams.update(params)
     
     figure(1, figsize=(6, 2 * (m.shape[0] - 1)), dpi = 600)
     subplots_adjust(wspace = 0.2, hspace = 0.2)

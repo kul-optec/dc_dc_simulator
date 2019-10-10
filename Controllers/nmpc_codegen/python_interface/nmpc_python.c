@@ -1,5 +1,5 @@
 #include "stdlib.h"
-#include "../include/nmpc.h"
+#include "../PANOC/nmpc.h"
 #include "../PANOC/casadi_interface.h"
 #include "../PANOC/buffer.h"
 #include "../globals/globals.h"

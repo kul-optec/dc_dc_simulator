@@ -17,7 +17,7 @@
 #include<stdlib.h>
 #include"lbfgs.h"
 #include"../globals/globals.h"
-#include"../include/nmpc.h"
+#include "nmpc.h"
 #include "panoc.c"
 #include "casadi_interface.h"
 #include "math.h"

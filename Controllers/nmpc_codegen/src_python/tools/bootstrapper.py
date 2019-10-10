@@ -60,7 +60,7 @@ class Bootstrapper:
         Bootstrapper._create_folder_if_not_exist(lib_location)
         Bootstrapper._create_folder_if_not_exist(lib_location+"/casadi")
         Bootstrapper._create_folder_if_not_exist(lib_location + "/globals")
-        Bootstrapper._create_folder_if_not_exist(lib_location + "/include")
+        #Bootstrapper._create_folder_if_not_exist(lib_location + "/include")
         Bootstrapper._create_folder_if_not_exist(lib_location + "/PANOC")
         Bootstrapper._create_folder_if_not_exist(lib_location + "/python_interface")
 
@@ -84,8 +84,8 @@ class Bootstrapper:
             dst_location = location + "/PANOC/" + src_files[i]
             Bootstrapper._copy_over_file(src_location,dst_location,overwrite)
 
-        src_location = location_nmpc_repo + "/include/" + "nmpc.h"
-        dst_location = location + "/include/" + "nmpc.h"
+        src_location = location_nmpc_repo + "/PANOC/" + "nmpc.h"
+        dst_location = location + "/PANOC/" + "nmpc.h" #location + "/include/" + "nmpc.h"
         Bootstrapper._copy_over_file(src_location, dst_location, overwrite)
 
     @staticmethod
@@ -114,7 +114,16 @@ class Bootstrapper:
         location_nmpc_repo : location nmpccodegen library
         overwrite : if true, overwrite existing files
         """
-        src_files = ["nmpc_python.c","nmpc_python.h","timer.h","timer_linux.c","timer_windows.c","timer_mac.c"]
+        if (platform.system() == 'Windows'):
+            src_files = ["nmpc_python.c","nmpc_python.h","timer.h","timer_windows.c"]
+        elif (platform.system() == 'Linux'):
+            src_files = ["nmpc_python.c","nmpc_python.h","timer.h","timer_linux.c"]
+        elif (platform.system() == 'Darwin'):
+            src_files = ["nmpc_python.c","nmpc_python.h","timer.h","timer_mac.c"]
+        else:
+            print("ERROR Platform not supported use either Linux, Mac or Windows")
+            
+                
 
         for i in range(0, len(src_files)):
             src_location = location_nmpc_repo + "/python_interface/" + src_files[i]

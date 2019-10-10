@@ -233,7 +233,7 @@ class Simulator:
             elif (platform.system() == 'Darwin'):
                 os.system(" cmake -H. -Bbuild ")
             else:
-                print("ERROR Platform not supported use either Linux,Mac or Windows")
+                print("ERROR Platform not supported use either Linux, Mac or Windows")
         finally:
             os.chdir(cwd)
     def _compile_interface(self):
