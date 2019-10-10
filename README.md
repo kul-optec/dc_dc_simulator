@@ -5,21 +5,23 @@ with PID controller applied or with control using nonlinear model predictive con
 Usage of the simulator and its design are described in the [User manual](https://github.com/kul-forbes/dc_dc_simulator/blob/master/Tutorial.pdf).
 
 ## Install instructions
-Program is written in Python 3.6 programming language using CASADI [1](https://github.com/casadi/casadi/wiki) package. For MPC simulator uses [NMPC-codegen](https://kul-forbes.github.io/nmpc-codegen/), which is integrated inside this simulator. 
+Program is written in Python 3.6 programming language using CASADI package. For MPC simulator uses [NMPC-codegen](https://kul-forbes.github.io/nmpc-codegen/), which is integrated inside this simulator. 
 
 For the usage of the simulator, it is necessary to 
 have installed:
 - Casadi version >= 3.2 and < 3.5
+- Python packages: matplotlib, sympy, numpy, PyQt5
 - Gcc GNU compiler 
 
 Windows users might use MSYS2: https://www.msys2.org/ and install the necessary using following commands.
+
 Open msys2.exe and type: `pacman -Syu` to update MSYS2
 
 Close the window and open it again and type: 
 ```
-pacman -Sy pacman		(to update the package database)
+pacman -Sy pacman							(to update the package database)
 pacman -S mingw-w64-x86_64-toolchain		(for a toolchain)
-pacman -S make		(to install make)
+pacman -S make								(to install make)
 ```
 						 
 Add folders `<MSYS2 root>/mingw64/bin` and `<MSYS2 root>/usr/bin` to path.
