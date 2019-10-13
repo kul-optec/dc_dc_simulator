@@ -12,6 +12,7 @@ import sympy
 import numpy as np
 import datetime
 import casadi as cd
+from scipy import linalg
 
 dictionary = {0 : '', 3 : '\mbox{m}', 6 : '\mu', 9 : '\mbox{n}', 12 : '\mbox{p}'}
 
@@ -29,6 +30,8 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
     
     A = []
     b = []
+    A_num = []
+    b_num = []
     list_dcm = []
     
     state = model.get_beginning_state()
@@ -38,6 +41,8 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
         states.append(state)
         A.append(state.get_matrices_cd_index(1))
         b.append(state.get_matrices_cd_index(2))
+        A_num.append(state.get_matrices_index(1))
+        b_num.append(state.get_matrices_index(2))
         for dcm in state.get_dcm():
             if not (dcm in list_dcm):
                 list_dcm.append([dcm, len(A)-1]) 
@@ -51,19 +56,61 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
                 i += 1
             state = states_new[i]
             
-                
+    # steady-state solution   
     num_states = A[0].size1()
     num_inputs = len(A) - 1
+    initial_state = np.array([0 for i in range(num_states)])
+    reference_state = model.steady_state(duty_ratio, 'CCM')
+    reference_input = np.array(duty_ratio)
+    delta = model.delta_steady_state(duty_ratio, 1/frequency, reference_state) 
+    
+    print("Determine terminal matrices.")
+    t, d = sympy.symbols('t, d', real = True)
+    x = sympy.Matrix([[sympy.symbols('x'+ str(i))] for i in range(num_states)])
+    A0 = sympy.Matrix(A_num[0])
+    A1 = sympy.Matrix(A_num[1])
+    b0 = sympy.Matrix(b_num[0])
+    b1 = sympy.Matrix(b_num[1])
+    if A0.det() == 0:
+        [D0,V0] = np.linalg.eig(A_num[0])
+        D0 = np.diag(D0)
+        int0 = sympy.integrate(sympy.exp(sympy.Matrix(D0)*t), (t,0,d/frequency))
+        int0 = sympy.Matrix(V0) * int0 * sympy.Matrix(inv(V0))
+        
+#        int0 = sympy.integrate(sympy.exp(A0*t), (t,0,d/frequency))
+    else:
+        int0 = A0.inv() * (sympy.exp(A0 * d/frequency) - sympy.eye(num_states))
+    exp0 = sympy.exp(A0*d/frequency)
+
+    if (A1.det() == 0):
+        [D1,V1] = np.linalg.eig(A_num[1])
+        D1 = np.diag(D1)
+        int1 = sympy.integrate(sympy.exp(sympy.Matrix(D1)*t), (t,0,(1-d)/frequency))
+        int1 = sympy.Matrix(V1) * int1 * sympy.Matrix(inv(V1))
+#        int1 = sympy.integrate(sympy.exp(A1*t), (t,0,(1-d)/frequency))
+    else:
+        int1 = A1.inv() * (sympy.exp(A1 * (1-d)/frequency) - sympy.eye(num_states))
+        
+    exp1 = sympy.exp(A1*(1-d)/frequency)
+    expr = exp1 * exp0 * x  + exp1 * int0 * b0 + int1 * b1
+    Ad = (expr.jacobian(x)).subs(d, duty_ratio[0])
+    bd = (sympy.diff(expr,d)).subs(d, duty_ratio[0])
+    for i in range(num_states):
+        symbol = sympy.symbols('x'+str(i))
+        bd = bd.subs(symbol, reference_state[i] + delta[i])
+    bd = sympy.N(bd)
+    Ad = np.array(Ad).astype(np.float64)
+    bd = np.array(bd).astype(np.float64)
     
     # Q and R matrixes 
     Q = np.diag([1. for i in range(num_states)])
     R = np.diag([0.1 for dummy in range(num_inputs)])
-    Q_terminal = Q #np.array([[2.0767,0.9497], [0.9497,1.8396]])
+    Q_terminal = linalg.solve_discrete_are(Ad,bd,Q,R)
     R_terminal = np.diag([0 for dummy in range(num_inputs)])
     
     mpc_controller = prepare_model(A, b, num_subsystems, num_states, frequency, num_inputs+1, Q, R, Q_terminal, R_terminal)
 
-    mpc_controller.horizon = 2                  # NMPC parameter
+    mpc_controller.horizon = 2                 # NMPC parameter
     mpc_controller.integrator_casadi = False    # optional  feature that can generate the integrating used  in the cost function
     mpc_controller.panoc_max_steps = 250        # the maximum amount of iterations the PANOC algorithm is allowed to do.
     mpc_controller.min_residual = -3
@@ -74,15 +121,10 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
 
     # generate the dynamic code
     mpc_controller.generate_code()
-      
-    # simulate everything
-    initial_state = np.array([0 for i in range(num_states)])
-    reference_state = model.steady_state(duty_ratio, 'CCM')
-    reference_input = np.array(duty_ratio)
-    delta = model.delta_steady_state(duty_ratio, 1/frequency, reference_state) 
-    
+          
     weights = [10. for dummy in range(len(list_dcm))]
 
+    # simulate everything
     state_history, log_history = simulate_mpc(mpc_controller, initial_state, number_steps, \
                                  reference_state-delta, reference_input, weights, simulation_time)
 
