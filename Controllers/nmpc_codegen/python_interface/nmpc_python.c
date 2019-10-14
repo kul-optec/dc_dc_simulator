@@ -18,13 +18,13 @@ void simulation_init(){
     nmpc_init();
 }
 struct Panoc_time* simulate_nmpc_panoc( real_t* current_state,
-                                        real_t* optimal_inputs,
-                                        real_t* state_reference,
-                                        real_t* input_reference
+										real_t* state_reference,
+										real_t* input_reference,
+                                        real_t* optimal_inputs 
                                         ){
     panoc_timer_start();
 
-    int number_of_interations = npmc_solve(current_state,optimal_inputs,state_reference,input_reference);
+    int number_of_interations = nmpc_solve(current_state,state_reference,input_reference,optimal_inputs);
 
     time_difference = panoc_timer_stop();
 

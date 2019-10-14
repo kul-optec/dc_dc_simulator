@@ -14,9 +14,9 @@
  */
 EXPORT void simulation_init();
 EXPORT struct Panoc_time* simulate_nmpc_panoc( real_t* current_state,
-                                        real_t* optimal_inputs,
-                                        real_t* state_reference,
-                                        real_t* input_reference
+										real_t* state_reference,
+										real_t* input_reference,
+                                        real_t* optimal_inputs                                        
                                         );
 
 EXPORT int get_last_full_solution(real_t* output);

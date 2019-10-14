@@ -118,7 +118,7 @@ static int shift_input(void){
     return SUCCESS;
 }
 
-int npmc_solve( const real_t* current_state,
+int nmpc_solve( const real_t* current_state,
                 const real_t* state_reference,
                 const real_t* input_reference,
                 real_t* optimal_inputs){
