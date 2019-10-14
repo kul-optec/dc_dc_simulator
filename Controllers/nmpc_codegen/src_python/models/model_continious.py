@@ -9,7 +9,7 @@ class Model_continious(m.Model):
        the name of an integrator to discretize it
     """
     def __init__(self, system_equations, constraint_input, number_of_states, \
-                 number_of_inputs, frequency, number_of_steps, integrator):
+                 number_of_inputs, frequency, number_of_steps, integrator = None):
         """
         Constructor Model
 
@@ -47,7 +47,12 @@ class Model_continious(m.Model):
         """
         system_equation = lambda state: \
                           super(Model_continious, self).system_equations(state, input, index)
-        return ig.integrator_RK_lib(state, time, system_equation, self._integrator)
+        
+        if (self._integrator == None):
+#            return ig.integrator_explicit_euler(state, time, system_equation)
+            return ig.integrator_RK(state, time, system_equation)
+        else: 
+            return ig.integrator_RK_lib(state, time, system_equation, self._integrator)
 
     def get_next_state_numpy(self, time, state, input, index):
         """ 
