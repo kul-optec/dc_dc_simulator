@@ -3,7 +3,7 @@ class Model:
     A discrete model describing the system behavior
        - If your model is continuous use the Model_continuous class. 
     """
-    def __init__(self, system_equations, input_constraint, number_of_states,\
+    def __init__(self, system_equations, system_equations_period, input_constraint, number_of_states,\
                  number_of_inputs, frequency, number_of_steps):
         """
         Constructor Model
@@ -20,6 +20,7 @@ class Model:
         Nothing
         """
         self._system_equations = system_equations
+        self._system_equations_period = system_equations_period
         self._input_constraint = input_constraint
         self._step_number = number_of_steps
         self._number_of_states = number_of_states
@@ -56,6 +57,13 @@ class Model:
         Get or set the discrete system equations, expressed as Python functions in the form f(state,input).
         """
         return self._system_equations
+
+    @property
+    def system_equations_period(self):
+        """
+        Get or set the discrete system equations, expressed as Python functions in the form f(state,input).
+        """
+        return self._system_equations_period
 
     @property
     def step_number(self):

@@ -8,7 +8,7 @@ class Model_continious(m.Model):
        - The same as a model, but the user provides a continue model and
        the name of an integrator to discretize it
     """
-    def __init__(self, system_equations, constraint_input, number_of_states, \
+    def __init__(self, system_equations, system_equations_period, constraint_input, number_of_states, \
                  number_of_inputs, frequency, number_of_steps, integrator = None):
         """
         Constructor Model
@@ -27,10 +27,11 @@ class Model_continious(m.Model):
         ------
         Nothing
         """
-        super(Model_continious,self).__init__(system_equations, constraint_input, \
+        super(Model_continious,self).__init__(system_equations, system_equations_period, constraint_input, \
              number_of_states, number_of_inputs, frequency, number_of_steps)
         self._integrator = integrator  
 #        self._system = system
+        
 
     def get_next_state(self, time, state, input, index = 0):
         """ 
@@ -53,6 +54,11 @@ class Model_continious(m.Model):
             return ig.integrator_RK(state, time, system_equation)
         else: 
             return ig.integrator_RK_lib(state, time, system_equation, self._integrator)
+        
+    def period_solution(self, state, input):
+        system_equation = lambda state: \
+                        super(Model_continious, self).system_equations_period(state, input)
+        return system_equation(state)
 
     def get_next_state_numpy(self, time, state, input, index):
         """ 

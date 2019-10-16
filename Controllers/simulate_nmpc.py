@@ -59,7 +59,7 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
     # steady-state solution   
     num_states = A[0].size1()
     num_inputs = len(A) - 1
-    initial_state = np.array([0 for i in range(num_states)])
+    initial_state = np.array([0 for i in range(num_states)])  
     reference_state = model.steady_state(duty_ratio, 'CCM')
     reference_input = np.array(duty_ratio)
     delta = model.delta_steady_state(duty_ratio, 1/frequency, reference_state) 
@@ -76,8 +76,6 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
         D0 = np.diag(D0)
         int0 = sympy.integrate(sympy.exp(sympy.Matrix(D0)*t), (t,0,d/frequency))
         int0 = sympy.Matrix(V0) * int0 * sympy.Matrix(inv(V0))
-        
-#        int0 = sympy.integrate(sympy.exp(A0*t), (t,0,d/frequency))
     else:
         int0 = A0.inv() * (sympy.exp(A0 * d/frequency) - sympy.eye(num_states))
     exp0 = sympy.exp(A0*d/frequency)
@@ -87,7 +85,6 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
         D1 = np.diag(D1)
         int1 = sympy.integrate(sympy.exp(sympy.Matrix(D1)*t), (t,0,(1-d)/frequency))
         int1 = sympy.Matrix(V1) * int1 * sympy.Matrix(inv(V1))
-#        int1 = sympy.integrate(sympy.exp(A1*t), (t,0,(1-d)/frequency))
     else:
         int1 = A1.inv() * (sympy.exp(A1 * (1-d)/frequency) - sympy.eye(num_states))
         
@@ -95,12 +92,14 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
     expr = exp1 * exp0 * x  + exp1 * int0 * b0 + int1 * b1
     Ad = (expr.jacobian(x)).subs(d, duty_ratio[0])
     bd = (sympy.diff(expr,d)).subs(d, duty_ratio[0])
+    Cd = (expr.subs(d, duty_ratio[0]))
     for i in range(num_states):
         symbol = sympy.symbols('x'+str(i))
-        bd = bd.subs(symbol, reference_state[i] + delta[i])
-    bd = sympy.N(bd)
+        bd = bd.subs(symbol, reference_state[i] - delta[i])
+        Cd = Cd.subs(symbol, reference_state[i] - delta[i])
     Ad = np.array(Ad).astype(np.float64)
     bd = np.array(bd).astype(np.float64)
+    Cd = np.array(Cd).astype(np.float64)    
     
     # Q and R matrixes 
     Q = np.diag([1. for i in range(num_states)])
@@ -108,12 +107,13 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
     Q_terminal = linalg.solve_discrete_are(Ad,bd,Q,R)
     R_terminal = np.diag([0 for dummy in range(num_inputs)])
     
-    mpc_controller = prepare_model(A, b, num_subsystems, num_states, frequency, num_inputs+1, Q, R, Q_terminal, R_terminal)
+    mpc_controller = prepare_model(A, b, cd.SX(Ad), cd.SX(bd), cd.SX(Cd), cd.SX(reference_state-delta), cd.SX(reference_input), \
+                                   num_subsystems, num_states, frequency, num_inputs+1, Q, R, Q_terminal, R_terminal)
 
-    mpc_controller.horizon = 2                 # NMPC parameter
-    mpc_controller.integrator_casadi = False    # optional  feature that can generate the integrating used  in the cost function
-    mpc_controller.panoc_max_steps = 250        # the maximum amount of iterations the PANOC algorithm is allowed to do.
-    mpc_controller.min_residual = -3
+    mpc_controller.horizon = 2                # NMPC parameter
+    mpc_controller.integrator_casadi = False  # optional  feature that can generate the integrating used  in the cost function
+    mpc_controller.panoc_max_steps = 1        # the maximum amount of iterations the PANOC algorithm is allowed to do.
+    mpc_controller.min_residual = -1
     
     # adding the constraints on state variables
     for dcm in list_dcm:
@@ -140,7 +140,8 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
 
     plot_log(state_history, log_history, file_name, log_file_name)
     
-def prepare_model(A, b, number_subsystems, number_of_states, frequency, \
+def prepare_model(A, b, Ad, bd, Cd, reference_state, reference_input, \
+                  number_subsystems, number_of_states, frequency, \
                   number_of_steps, Q, R, Q_terminal = None, R_terminal = None):
     # generate static files
     controller_output_location =  "./constructed_controller/" + str(datetime.datetime.now().date()) + "_" \
@@ -148,10 +149,10 @@ def prepare_model(A, b, number_subsystems, number_of_states, frequency, \
     tools.Bootstrapper.bootstrap(controller_output_location, simulation_tools = True)
 
 #    # get example model
-    (system_equations, number_of_inputs) = get_model(A, b, number_subsystems)
-    integrator = "RK44"  # select a Runga-Kutta  integrator (FE is forward euler)
+    (system_equations, system_equations_period, number_of_inputs) = get_model(A, b, Ad, bd, Cd, reference_state, reference_input, number_subsystems)
+    integrator = "RK44"  # integrator (FE is forward euler)
     constraint_input = Cfunctions.IndicatorBoxFunction([0 for dummy in range(number_of_inputs)], [1 for dummy in range(number_of_inputs)])  # input needs stay within these borders, 0 < dTs < Ts
-    model = models.Model_continious(system_equations, constraint_input, number_of_states, \
+    model = models.Model_continious(system_equations, system_equations_period, constraint_input, number_of_states, \
                                     number_of_inputs, frequency, number_of_steps, integrator)
 #
 #    # define the control

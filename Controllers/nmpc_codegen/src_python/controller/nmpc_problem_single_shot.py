@@ -31,20 +31,17 @@ class Single_shot_definition:
                 interval = input[size] * self._period / self._period_steps
                 sum_of_input += input[size]
                 for j in range(self._period_steps):
-                    current_state = self._controller.model.get_next_state(interval, current_state, input, size)
+#                    current_state = self._controller.model.get_next_state(interval, current_state, input, size)
 
-#                    cost = cost + self._controller.stage_cost(current_state,input, j + i * self._controller.horizon,\
-#                                                              state_reference,input_reference)
                     cost = cost + self._controller.generate_cost_constraints(current_state, input[size], size, constraint_weights)
             
             interval = (1 - sum_of_input) * self._period / self._period_steps
             for j in range(self._period_steps):
-                current_state = self._controller.model.get_next_state(interval, current_state, input, number_inputs)
+#                current_state = self._controller.model.get_next_state(interval, current_state, input, number_inputs)
 
-#                cost = cost + self._controller.stage_cost(current_state,input, j + number_inputs * self._period_steps \
-#                                                          + i * self._controller.horizon, state_reference,input_reference)
                 cost = cost + self._controller.generate_cost_constraints(current_state, 1 - sum_of_input, size + 1, constraint_weights)
             
+            current_state = self._controller.model.period_solution(current_state, input)
             cost = cost + self._controller.stage_cost(current_state, input, i, state_reference, input_reference)
 
         (cost_function, cost_function_derivative_combined) = \
