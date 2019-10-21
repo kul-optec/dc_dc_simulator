@@ -14,16 +14,16 @@ A1 = [0 -1/L; 1/C -1/R/C];
 b1 = b0;
 
 dd = 0.3;
-xx = -(dd*A0 + (1-dd)*A1)^(-1) * (dd*b0 + (1-dd)*b1)
-dx = dd*Ts*0.5*(A0 * xx + b0)
-xe = xx + dx;
+xx = -(dd*A0 + (1-dd)*A1)^(-1) * (dd*b0 + (1-dd)*b1);
+dx = dd*Ts*0.5*(A0 * xx + b0);
+xe = xx - dx;
 
-int0 = int(expm(A0*t), t, 0, d*Ts);
-int1 = inv(A1) * (expm(A1*(1-d)*Ts) - eye(2)); %int(expm(A1*t), t, 0, (1-d)*Ts);
+int0 = Ts * int(expm(A0*t*Ts), t, 0, d)*b0;
+int1 = inv(A1) * (expm(A1*(1-d)*Ts) - eye(2))*b1; %int(expm(A1*t), t, 0, (1-d)*Ts);
 
 x = [x1;x2];
 
-exp = expm(A1*(1-d)*Ts)*expm(A0*d*Ts)*x + expm(A1*(1-d)*Ts)*int0*b0 + int1*b1;
+exp = expm(A1*(1-d)*Ts)*expm(A0*d*Ts)*x + expm(A1*(1-d)*Ts)*int0 + int1;
 
 derx = jacobian(exp, x);
 derx = subs(derx, d, dd);
@@ -35,10 +35,11 @@ derd = subs(derd, x, xe);
 
 Ad = double(derx);
 bd = double(derd);
+cd = double(subs(subs(exp,d,dd),x,xe));
 
-Q = 0.6*eye(2);
+Q = eye(2);
 R = 0.1;
-[P,L,G, info] = dare(Ad,bd,Q,R)
+[P,L,G, info] = dare(Ad,bd,Q,R);
 K = -G;
 
 % alpha = xe'*P*xe

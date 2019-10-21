@@ -1,4 +1,6 @@
 n = 0:length(log.d)-1;
+fs = 50e3;
+n = n/fs * 1e3;
 
 figure(1)
 clf
@@ -14,7 +16,7 @@ set(gca,'ActivePositionProperty','outerposition');
 subplot_tight(2,2,3, [0.1 0.1]), stairs(n,log.cost);
 grid on
 ylabel('cost', 'interpreter', 'latex','fontsize',14)
-xlabel('$n$', 'interpreter', 'latex')
+xlabel('$nT_S \; [\mbox{ms}]$', 'interpreter', 'latex')
 set(gca,'FontSize',12)
 set(gca,'ActivePositionProperty','outerposition');
 
@@ -28,6 +30,6 @@ set(gca,'ActivePositionProperty','outerposition');
 subplot_tight(2,2,4, [0.1 0.1]), stairs(n,log.steps);
 grid on
 ylabel('iterations', 'interpreter', 'latex','fontsize',14)
-xlabel('$n$', 'interpreter', 'latex')
+xlabel('$nT_S \; [\mbox{ms}]$', 'interpreter', 'latex')
 set(gca,'FontSize',12)
 set(gca,'ActivePositionProperty','outerposition');

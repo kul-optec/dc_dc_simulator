@@ -22,6 +22,8 @@ class State:
         self.__control_list = []
         self.__next_state = []
         self.__controlled_switches = []
+        
+        self.__independent_sources = 0
 
         self.__active_control = None		# different than None for internal control
         self.__absolute_error = absolute_error
@@ -77,6 +79,9 @@ class State:
 
     def add_next_state(self, state):
         self.__next_state.append(state)
+        
+    def add_independent_sources(self, sources):
+        self.__independent_sources = sources
 
 #############################################################################################################################################
 	# getting information
@@ -86,6 +91,16 @@ class State:
 
     def get_matrices(self):
         return [self.__A, self.__B, self.__C, self.__D]
+    
+    def get_matrices_index(self, indicator):
+        if (indicator == 1):
+            return self.__A
+        elif (indicator == 2):
+            return self.__B * self.__independent_sources
+        elif (indicator == 3):
+            return self.__C
+        else:
+            return self.__D
     
     def get_matrices_cd(self):
         return [self.__A_cd, self.__B_cd, self.__C_cd, self.__D_cd]

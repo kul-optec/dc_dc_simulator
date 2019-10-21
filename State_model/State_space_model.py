@@ -192,7 +192,7 @@ class State_space_model:
                     matrix_D_cd[i][j] = float(matrix_D[i][j])
 
         state.add_matrices_cd(matrix_A_cd, matrix_B_cd, matrix_C_cd, matrix_D_cd)    # adding state matrices in CASADI format
-                
+        state.add_independent_sources(independent_sources_values)      
         self.__states.append(state)
         
         
