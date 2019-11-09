@@ -15,5 +15,6 @@ class Resistor(Element):
             if (self._node2):
                 A[self._node1 - 1, self._node2 - 1] -= 1 / value
                 A[self._node2 - 1, self._node2 - 1] += 1 / value	
+                A[self._node2 - 1, self._node1 - 1] -= 1 / value 
         else:
             A[self._node2 - 1, self._node2 - 1] += 1 / value

@@ -9,12 +9,13 @@ model = System()
 # SYSTEM DESCRIPTION
 
 # boost
-model.create_element(Voltage_source(1, 1, 0, 10.0))
-model.create_element(Switch(1, 3, 2, 0))
-model.create_element(Switch(2, 3, 2, 3))
-model.create_element(Inductor(1, 1, 2, 100e-6))
-model.create_element(Capacitor(1, 3, 0, 20e-6))
-model.create_element(Resistor(1, 3, 0, 4.0))
+model.create_element(Voltage_source(1, 1, 0, 2.5))
+model.create_element(Resistor(2, 1, 2, 0.1))
+model.create_element(Inductor(1, 2, 3, 1.1e-3))
+model.create_element(Switch(1, 3, 3, 0))
+model.create_element(Switch(2, 3, 3, 4))
+model.create_element(Capacitor(1, 4, 0, 1e-3))
+model.create_element(Resistor(1, 4, 0, 4.2))
 
 # buck
 #model.create_element(Voltage_source(1, 1, 0, 20.0))
@@ -36,16 +37,16 @@ model.create_element(Resistor(1, 3, 0, 4.0))
 
 model.set_control(1, 'on_state')
 model.set_control(2, 'off_state')
-model.set_output([['node', 3]])
+model.set_output([['node', 4]])
 model.initialize()
 model.initialise_output()
 #controller = Controller_pid.Controller([1], [2],\
 #   'pole_zero_matching', [[[2.829e-06,0.02847,61.51], [7.013e-06,1, 0], 14.28]], 50e3)
 
-#frequency = 50e3
-frequency = 50e3
-duty_ratio = [0.3]
-simulation_time = 1e-3
+
+frequency = 1e3
+duty_ratio = [0.4]
+simulation_time = 20e-3
 TIME_STEP_POINTS = 20
 
 state_space_model = State_space_model(model)

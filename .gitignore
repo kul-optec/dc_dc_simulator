@@ -1,2 +1,7 @@
 .DS_Store
 constructed_controller/
+*.pyc*
+__pycache__/
+examples/log.txt
+examples/state_variables.npy
+examples/state_variables.pdf

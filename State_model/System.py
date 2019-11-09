@@ -159,8 +159,6 @@ class System:
         element = constructor 
         self.add_element(element)
         self.add_symbol(element.get_symbol())
-
-        self.__number_elements += 1
 	
         for node in element.get_nodes():
             self.add_node(node, element)
