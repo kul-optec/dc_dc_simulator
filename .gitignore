@@ -3,3 +3,8 @@ constructed_controller/
 examples/log.txt
 examples/state_variables.npy
 examples/state_variables.pdf
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
