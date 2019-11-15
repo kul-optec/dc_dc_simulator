@@ -9,13 +9,13 @@ model = System()
 # SYSTEM DESCRIPTION
 
 # boost
-model.create_element(Voltage_source(1, 1, 0, 2.5))
-model.create_element(Resistor(2, 1, 2, 0.1))
+model.create_element(Voltage_source(1, 1, 0, 2.7))
+model.create_element(Resistor(2, 1, 2, 0.26))
 model.create_element(Inductor(1, 2, 3, 1.1e-3))
 model.create_element(Switch(1, 3, 3, 0))
 model.create_element(Switch(2, 3, 3, 4))
 model.create_element(Capacitor(1, 4, 0, 1e-3))
-model.create_element(Resistor(1, 4, 0, 4.2))
+model.create_element(Resistor(1, 4, 0, 4.7))
 
 # buck
 #model.create_element(Voltage_source(1, 1, 0, 20.0))

@@ -64,6 +64,8 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
     reference_input = np.array(duty_ratio)
     delta = model.delta_steady_state(duty_ratio, 1/frequency, reference_state) 
     
+    print("Steady-state", reference_state)
+    
     print("Determine terminal matrices.")
     t, d = sympy.symbols('t, d', real = True)
     x = sympy.Matrix([[sympy.symbols('x'+ str(i))] for i in range(num_states)])
@@ -126,7 +128,7 @@ def simulate(model, simulation_time, number_steps, duty_ratio, frequency, file_n
 
     # simulate everything
     state_history, log_history = simulate_mpc(mpc_controller, initial_state, number_steps, \
-                                 reference_state-delta, reference_input, weights, simulation_time)
+                                 Ad, bd, Cd, reference_state-delta, reference_input, weights, simulation_time)
 
     npy_file = open(file_name, 'wb')	
     np.save(npy_file, state_history)
@@ -165,7 +167,9 @@ def prepare_model(A, b, Ad, bd, Cd, reference_state, reference_input, \
 
     return mpc_controller
 
-def simulate_mpc(mpc_controller, initial_state, number_steps_period, reference_state, reference_input, weights, simulation_time):
+def simulate_mpc(mpc_controller, initial_state, number_steps_period, \
+                 Ad, bd, Cd, reference_state, reference_input, \
+                 weights, simulation_time):
     # -- simulate controller --
     number_of_steps = math.ceil(simulation_time / mpc_controller.model.period)
     # setup a simulator to test
@@ -175,6 +179,8 @@ def simulate_mpc(mpc_controller, initial_state, number_steps_period, reference_s
 
 
     state = initial_state
+    new_state = np.array([state])
+    reference_state = np.array([reference_state])
     state_history = np.zeros((mpc_controller.model.number_of_states + 1, \
                               number_of_steps * number_steps_period + 1))
     size = number_steps_period // (mpc_controller.model.number_of_inputs + 1)
@@ -182,21 +188,21 @@ def simulate_mpc(mpc_controller, initial_state, number_steps_period, reference_s
     
     state_history[0,0] = time
     state_history[1:len(state)+1,0] = state
+    duty_ratio = 0
     
     log_history = np.zeros((4, number_of_steps))
 
     for i in range(0, number_of_steps):
-        result_simulation = sim.simulate_nmpc(state, reference_state, reference_input)
+        new_state = np.matmul(Ad, (new_state - reference_state).T) + \
+                    np.array([np.matmul(bd, (duty_ratio - reference_input))]).T + Cd
+        result_simulation = sim.simulate_nmpc(new_state, reference_state, reference_input)
         cost = sim.get_last_buffered_cost()
-#        string = "[" + str(i+1) + "/" + str(number_of_steps) + "]: cost = " + str(cost) + ", optimal input = " + str(result_simulation.optimal_input)  \
-#            + ", time = " + str(result_simulation.micro_seconds) + ", iterations = " + str(result_simulation.panoc_interations)
-#        print(string)
         
         log_history[:,i] = [cost, result_simulation.optimal_input, result_simulation.micro_seconds, result_simulation.panoc_interations]
         
         sum_inp = 0
         for index in range(mpc_controller.model.number_of_inputs):
-            inp = result_simulation.optimal_input[index]
+            inp = duty_ratio 
             sum_inp += inp
             interval = inp * mpc_controller.model.period / size
             for j in range(1,size+1):
@@ -212,6 +218,8 @@ def simulate_mpc(mpc_controller, initial_state, number_steps_period, reference_s
             state_history[:, i*number_steps_period + size * (index + 1) + j] = \
             np.reshape(np.row_stack((time, state[:])), mpc_controller.model.number_of_states + 1)
         
+        new_state = state.T
+        duty_ratio = result_simulation.optimal_input[index]
 
     print("Final state:") 
     print(state)
